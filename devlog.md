@@ -1,7 +1,7 @@
 # Fall 2024 - Intro to Game Design @ SUNY New Paltz
 * Name: Bryan Vasquez
 * [Trello Board](https://trello.com/b/zFvWG4cb)
-* [Proposal](proposal.pdf)
+* [Proposal](Proposal.pdf)
 * [Other docs](todo)
 
 ### 2024-09-23 - 6.5hr: Headline of what work was done like "Got the player character working."
