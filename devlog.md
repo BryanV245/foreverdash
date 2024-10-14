@@ -1,6 +1,6 @@
 # Fall 2024 - Intro to Game Design @ SUNY New Paltz
 * Name: Bryan Vasquez
-* [Trello Board](https://trello.com/b/zFvWG4cb)
+* [Trello Board](https://trello.com/b/3Cmn97f0)
 * [Proposal](Proposal.pdf)
 * [Other docs](todo)
 
