@@ -1,33 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmv67n3xrxhyd"]
+[gd_scene load_steps=3 format=3 uid="uid://bmv67n3xrxhyd"]
 
-[ext_resource type="Script" path="res://scripts/Player.gd" id="1_xpfry"]
-[ext_resource type="Texture2D" uid="uid://d3amgsfdlb6du" path="res://assets/square.png" id="2_rll0q"]
+[ext_resource type="PackedScene" uid="uid://br7vgofaqaxep" path="res://scenes/player.tscn" id="2_ww5qg"]
 [ext_resource type="Script" path="res://scripts/world_generator.gd" id="3_rwhtp"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxwd6"]
-size = Vector2(16, 14)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fpvyo"]
-atlas = ExtResource("2_rll0q")
-region = Rect2(193.571, 153.857, 147.657, 138.971)
 
 [node name="Game" type="Node2D"]
 
 [node name="WorldGenerator" type="Node2D" parent="."]
 script = ExtResource("3_rwhtp")
 
-[node name="Player" type="CharacterBody2D" parent="."]
-script = ExtResource("1_xpfry")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(13, -8)
-shape = SubResource("RectangleShape2D_cxwd6")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(13, -8)
-scale = Vector2(0.107323, 0.106044)
-texture = SubResource("AtlasTexture_fpvyo")
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(5, 5)
-position_smoothing_enabled = true
+[node name="Player" parent="." instance=ExtResource("2_ww5qg")]

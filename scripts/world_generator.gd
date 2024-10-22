@@ -1,14 +1,14 @@
 extends Node2D
 
-# Load the platform scene (ensure the path is correct)
+# Load the platform scene 
 var platform_scene = preload("res://scenes/platform.tscn")
 
 # Variables for procedural generation
 var min_platform_width = 200  # Minimum platform width
 var max_platform_width = 1000  # Maximum platform width
-var platform_height = 20      # Fixed height for the platforms
-var noise_scale = 0.1          # Spread of the noise
-var amplitude = 50           # Maximum height variation for platforms
+var platform_height = 400      # Fixed height for the platforms
+var noise_scale = 0.25          # Spread of the noise
+var amplitude = 100           # Maximum height variation for platforms
 
 # Reference to the player
 @onready var player = $"/root/Game/Player"
@@ -25,9 +25,9 @@ var generation_distance = 0
 func _ready():
 	
 
-	get_tree().debug_collisions_hint = true;
+	#This is to debug collision shapes
+	#get_tree().debug_collisions_hint = true;
 	
-	# Set noise type to Simplex (since TYPE_OPEN_SIMPLEX_2D is not available in Godot 4)
 	noise.noise_type = FastNoiseLite.TYPE_SIMPLEX
 	
 	# Initialize the noise generator with a random seed
@@ -47,7 +47,7 @@ func _process(delta):
 
 # Function to generate the next platform
 # Store the Y position of the last generated platform
-var last_platform_y = 300  # Start with a default value (same as your base Y offset)
+var last_platform_y = 300  # default value 
 
 # Minimum vertical distance between platforms to avoid stacking
 var min_vertical_spacing = 50  
