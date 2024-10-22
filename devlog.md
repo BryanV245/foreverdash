@@ -4,23 +4,28 @@
 * [Proposal](Proposal.pdf)
 * [Other docs](todo)
 
-### 2024-09-23 - 6.5hr: Headline of what work was done like "Got the player character working."
-* Item 1 - like "Found a tutuorial at https://gamedev.com/123/abc" which showed me how to create a
-  topdown character in godot. (two spaces to continue bullet)
-* Item 2 - like "Ran into issue with XYZ, so used ChatGPT to figure it out by doing ABC"
-* Item 3 - like "TODO: I still need to get the projectile working."
-* Item 4 - like "I completed [XYZ](some-link-to-ticket)
+### 2024-09-18 - 4hr: Player movement and camera
+* Attached jumping, and directional movement to the player scene.
 
-### 2024-09-22 - 1 hr: This is the previous day's devlog. Always put the newest item at the top of the page.
-* Item 1
-* Item 2
+### 2024-9-20 - 3 hr: Player sprite and test platform
+* Added a sprite to the player scene and created a test platform for the player to move on.
 
-### 2024-09-24 -  hr: This is the day's devlog. Always put the newest item at the top of the page.
-* Item 1
-* Item 2
+### 2024-09-24 - 3 hr: Collision shapes, gravity, and jump
+* Added collision shapes to the player and platform.
+* Added gravity to the player and jump functionality.
+
+### 2024-10-2 - 4 hr: camera follow, algorithm, level hierarchy
+* Added camera follow to the player.
+* Created a level hierarchy and added a new level.
+* wrote an algorithm for level generation using simplex noise
+
+### 2024-10-6 - 3 hr: Level generation and platform scene
+* began impelementing the level generation algorithm 
+* attached the platform scene to the level generation algorithm
+
+### 2024-10-15 - 7 hr: Level generation algorithm tweaking
+* Tweaked the level generation algorithm to create more interesting levels
+* adjusted the bounds of the level generation algorithm
 
 
 
-
-  You can learn more about formatting using markdown.
-https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
