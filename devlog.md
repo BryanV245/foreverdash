@@ -27,5 +27,17 @@
 * Tweaked the level generation algorithm to create more interesting levels
 * adjusted the bounds of the level generation algorithm
 
+### 2024-10-21 - 8 hr: Bugs, level generation, player movement, world bounds, collision shapes
+* Fixed a bug where the player would fall through the platform
+* Fixed a bug where the platforms would generate on top of each other
+* optomized platform spacing for the player to jump from one to the other
+* added world bounds to the player script, when player falls off they are spawned back at the same spot
+
+### 2024-10-22 - 3 hr: Level generation algorithm, jumping animation
+* Tweaked the level generation algorithm to create more interesting levels
+* Adjusted amplitude to allow for more smooth transitions between platforms
+* Added a jumping animation to the player
+
+
 
 
