@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://lgipo1hrlyjk"]
+
+[ext_resource type="Script" path="res://scripts/static_body_2d.gd" id="1_n5wla"]
+[ext_resource type="Texture2D" uid="uid://d3amgsfdlb6du" path="res://assets/square.png" id="2_5hb06"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8chq"]
+atlas = ExtResource("2_5hb06")
+region = Rect2(346.045, 681.259, 105.54, 88.8543)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_egxea"]
+
+[node name="Platform02" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("1_n5wla")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = SubResource("AtlasTexture_m8chq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_egxea")
