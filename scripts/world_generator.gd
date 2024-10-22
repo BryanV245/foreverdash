@@ -4,11 +4,11 @@ extends Node2D
 var platform_scene = preload("res://scenes/platform.tscn")
 
 # Variables for procedural generation
-var min_platform_width = 64  # Minimum platform width
-var max_platform_width = 256  # Maximum platform width
+var min_platform_width = 200  # Minimum platform width
+var max_platform_width = 1000  # Maximum platform width
 var platform_height = 20      # Fixed height for the platforms
 var noise_scale = 0.1          # Spread of the noise
-var amplitude = 300           # Maximum height variation for platforms
+var amplitude = 50           # Maximum height variation for platforms
 
 # Reference to the player
 @onready var player = $"/root/Game/Player"
@@ -55,11 +55,14 @@ var min_vertical_spacing = 50
 func generate_next_platform():
 	var x_position = generation_distance  # X position for the next platform
 
+	
 	# Use Simplex Noise to calculate Y position
 	var y_position = noise.get_noise_2d(x_position * noise_scale, 0) * amplitude + 300
 
 	# Randomize platform width
 	var platform_width = randf_range(min_platform_width, max_platform_width)
+	
+	x_position += platform_width / 2.0
 
 	# Instance a new platform (Platform root node)
 	var platform_instance = platform_scene.instantiate()
@@ -85,14 +88,14 @@ func generate_next_platform():
 	last_platform_y = y_position
 
 	# Move generation distance forward based on the platform width
-	generation_distance += platform_width
+	generation_distance += platform_width + randf_range(20, 100)
 
 
 # Function to remove platforms that are far behind the player
 func cleanup_old_platforms():
 	var platforms_to_remove = []
 	for platform in platforms:
-		if platform.position.x < player.position.x - 600:
+		if platform.position.x < player.position.x - max_platform_width * 2:
 			platforms_to_remove.append(platform)
 	
 	for platform in platforms_to_remove:
