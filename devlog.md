@@ -38,6 +38,18 @@
 * Adjusted amplitude to allow for more smooth transitions between platforms
 * Added a jumping animation to the player
 
+### 2024-10-23 - 3 hr: Level generation algorithm, player movement
+* Tweaked the level generation algorithm to create more interesting levels
+
+### 2024-100-26 - 4 hr: Testing, debugging, spike generation
+* Focused on creating testing scenarios for the game
+* worked on stuttering bug
+* created spike scene
+* built test for spike generation
+
+### 2024-10-28 - 3 hr: Spike generation, External Playtest
+* Worked on spike generation and positioning
+* did a external playtest with a friend
 
 
 

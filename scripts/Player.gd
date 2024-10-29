@@ -6,6 +6,9 @@ const JUMP_VELOCITY = -300.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _ready() -> void:
+	velocity.x = SPEED
+
 func _physics_process(delta):
 	
 	if position.y > 1000 || position.y < -1000:
@@ -18,6 +21,7 @@ func _physics_process(delta):
 	else:
 		$AnimationPlayer.stop()
 		$AnimationPlayer.play("RESET")
+		pass
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept"):
@@ -25,7 +29,7 @@ func _physics_process(delta):
 
 
 	# Always move to the right at a constant speed.
-	velocity.x = SPEED 
+	velocity.x = SPEED
 
 	# Move the character using move_and_slide().
 	move_and_slide()
