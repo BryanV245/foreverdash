@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="ForeverDash"
-run/main_scene="res://scenes/Testing/test.tscn"
+run/main_scene="res://scenes/control.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
 window/size/mode=2
+window/stretch/mode="viewport"
 
 [rendering]
 

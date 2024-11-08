@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://diyst58s34gdd"]
+
+[ext_resource type="Script" path="res://scripts/spikes_tripple.gd" id="1_fbh5u"]
+[ext_resource type="PackedScene" uid="uid://b3om0bk8j0r1j" path="res://scenes/obstacles/spikes_single.tscn" id="1_tkhai"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_fbh5u")
+
+[node name="spikes" parent="." instance=ExtResource("1_tkhai")]
+
+[node name="spikes2" parent="." instance=ExtResource("1_tkhai")]
+position = Vector2(12, 0)
+
+[node name="spikes3" parent="." instance=ExtResource("1_tkhai")]
+position = Vector2(24, 0)

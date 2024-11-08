@@ -54,12 +54,13 @@ script = ExtResource("1_r1pmt")
 shape = SubResource("RectangleShape2D_cxwd6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.107323, 0.106044)
+position = Vector2(-3.33786e-06, 0)
+scale = Vector2(0.109, 0.1)
 texture = SubResource("AtlasTexture_fpvyo")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
-position_smoothing_enabled = true
+offset = Vector2(100, -50)
+zoom = Vector2(2, 2)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

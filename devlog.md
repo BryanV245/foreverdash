@@ -51,5 +51,17 @@
 * Worked on spike generation and positioning
 * did a external playtest with a friend
 
+### 2024-10-29 - 5 hr: Spike generation
+* Tweaked spike generation to be more random
+* spike groupings created (1, 2, 3, 4 spike rows)
+
+### 2024-11-5 - 3 hr: Spike generation
+* Began implementing spike generation in world generation algorithm
+
+### 2024-11-8 - 7 hr: Spike generation
+* Finished implementing spike generation in world generation algorithm
+* note - may have to restructure where spike scene is implemented and generated
+*           - possibly going to take it out of world gneration and put in platform gnerator
+
 
 

@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://p1rr5dfili7t"]
+
+[ext_resource type="PackedScene" uid="uid://b3om0bk8j0r1j" path="res://scenes/obstacles/spikes_single.tscn" id="1_cqfgb"]
+[ext_resource type="PackedScene" uid="uid://bts5250cbvb1k" path="res://scenes/obstacles/spikes_double.tscn" id="2_l351n"]
+[ext_resource type="PackedScene" uid="uid://wbcqgbym8hqg" path="res://scenes/obstacles/spikes_quadruple.tscn" id="3_qxnfu"]
+[ext_resource type="PackedScene" uid="uid://diyst58s34gdd" path="res://scenes/obstacles/spikes_tripple.tscn" id="4_c4n0s"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="single" parent="." instance=ExtResource("1_cqfgb")]
+
+[node name="double" parent="." instance=ExtResource("2_l351n")]
+
+[node name="tripple" parent="." instance=ExtResource("3_qxnfu")]
+
+[node name="quadruple" parent="." instance=ExtResource("4_c4n0s")]
