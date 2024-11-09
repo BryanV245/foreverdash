@@ -63,5 +63,6 @@
 * note - may have to restructure where spike scene is implemented and generated
 *           - possibly going to take it out of world gneration and put in platform gnerator
 
-
+### 2024-11-8 - 3 hr: Spike generation
+* spike generation moved into platform generator and are now generating correctly on top of each platform
 

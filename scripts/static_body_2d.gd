@@ -3,10 +3,19 @@ extends StaticBody2D
 var plat_width = 0
 var plat_height = 0
 
+var platform_scene = preload("res://scenes/platform.tscn")
+var single_spike_scene = preload("res://scenes/obstacles/spikes_single.tscn")
+var double_spike_scene = preload("res://scenes/obstacles/spikes_double.tscn")
+var triple_spike_scene = preload("res://scenes/obstacles/spikes_tripple.tscn")
+var quadruple_spike_scene = preload("res://scenes/obstacles/spikes_quadruple.tscn")
+
+var rng = RandomNumberGenerator.new()
+
+
 
 
 # Function to adjust platform size (visual and collision)
-func set_platform_size(width: float, height: float):
+func set_platform_size(width: float, height: float, platform_count: int):
 	
 	plat_width = width
 	plat_height = height
@@ -30,3 +39,49 @@ func set_platform_size(width: float, height: float):
 	if collision_shape is RectangleShape2D:
 		# Update extents (half the size of the platform)
 		collision_shape.extents = Vector2(width / 2, height / 2) 
+		
+	generate_spike_row(width, height, calcSpikeRow(platform_count))
+		
+		
+func generate_spike_row(width: float, height: float, spike_count: int):
+	# Choose the correct spike scene based on spike_count
+	var spike_row_scene
+	match spike_count:
+		1:
+			spike_row_scene = single_spike_scene
+		2:
+			spike_row_scene = double_spike_scene
+		3:
+			spike_row_scene = triple_spike_scene
+		4:
+			spike_row_scene = quadruple_spike_scene
+		_:
+			
+			print("Invalid spike count! Defaulting to single spike.")
+			spike_row_scene = single_spike_scene # Fallback to single spike if invalid count
+			# Instantiate the chosen spike row scene	
+	var spike_row_instance = spike_row_scene.instantiate()
+	
+	var offset = randi_range(0, width - spike_row_instance.getWidth())
+	# Position the spike row
+	spike_row_instance.position = Vector2((width / 2 * -1) + offset, height / 2 * -1)
+
+	
+	# Add the spike row instance to the current scene
+	add_child(spike_row_instance)
+	
+	
+func calcSpikeRow(platformCount: float):
+	if platformCount >= 1 && platformCount < 15  :
+		return 1
+	else:
+		if platformCount >= 15 && platformCount < 30:
+			return 2
+		else: 
+			if platformCount >= 30 && platformCount < 60:
+				return 3
+			else:
+				if platformCount >= 60:
+					return 4
+					
+	
