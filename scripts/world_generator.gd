@@ -16,7 +16,6 @@ var amplitude = 100           # Maximum height variation for platforms
 # Noise generator using FastNoiseLite
 var noise = FastNoiseLite.new()
 
-
 # Store the generated platforms
 var platforms = []
 
@@ -27,10 +26,9 @@ var generation_distance = 0
 var platform_count = 1
 
 func _ready():
-	
 
 	#This is to debug collision shapes
-	#get_tree().debug_collisions_hint = true;
+	get_tree().debug_collisions_hint = true;
 	
 	noise.noise_type = FastNoiseLite.TYPE_SIMPLEX
 	
@@ -64,8 +62,6 @@ func generate_next_platform():
 
 	# Randomize platform width
 	var platform_width = randf_range(min_platform_width, max_platform_width)
-	
-	var left_x = x_position
 	
 	#centered x
 	x_position += platform_width / 2.0

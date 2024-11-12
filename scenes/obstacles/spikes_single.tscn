@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3om0bk8j0r1j"]
+[gd_scene load_steps=4 format=3 uid="uid://b3om0bk8j0r1j"]
 
 [ext_resource type="Script" path="res://scripts/spikes_single.gd" id="1_gbfg7"]
 [ext_resource type="Texture2D" uid="uid://c43fr721svh2i" path="res://assets/spike.png" id="1_hnqvo"]
+[ext_resource type="PackedScene" uid="uid://q17ljdgfkx3s" path="res://scenes/killzone.tscn" id="3_shk1f"]
 
 [node name="spikes" type="Node2D"]
 script = ExtResource("1_gbfg7")
@@ -14,6 +15,14 @@ texture = ExtResource("1_hnqvo")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+position = Vector2(6.08976, -5.43247)
+scale = Vector2(0.0299202, 0.0215554)
+polygon = PackedVector2Array(-203.533, 252.024, -3.00002, -211.897, 197.533, 252.024)
+
+[node name="Killzone" parent="." instance=ExtResource("3_shk1f")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Killzone"]
 visible = false
 position = Vector2(6.08976, -5.43247)
 scale = Vector2(0.0299202, 0.0215554)

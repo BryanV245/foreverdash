@@ -11,9 +11,6 @@ var quadruple_spike_scene = preload("res://scenes/obstacles/spikes_quadruple.tsc
 
 var rng = RandomNumberGenerator.new()
 
-
-
-
 # Function to adjust platform size (visual and collision)
 func set_platform_size(width: float, height: float, platform_count: int):
 	
@@ -40,9 +37,11 @@ func set_platform_size(width: float, height: float, platform_count: int):
 		# Update extents (half the size of the platform)
 		collision_shape.extents = Vector2(width / 2, height / 2) 
 		
-	generate_spike_row(width, height, calcSpikeRow(platform_count))
+	#spikes start at platform 15 to give the player the chance to get a feel for the game
+	if(platform_count >= 5):
+		generate_spike_row(width, height, calcSpikeRow(platform_count))
 		
-		
+#function to generate spike and place it on the platform
 func generate_spike_row(width: float, height: float, spike_count: int):
 	# Choose the correct spike scene based on spike_count
 	var spike_row_scene
@@ -71,17 +70,18 @@ func generate_spike_row(width: float, height: float, spike_count: int):
 	add_child(spike_row_instance)
 	
 	
+#function to set spike row depending on the amount of platforms the player has passed
 func calcSpikeRow(platformCount: float):
-	if platformCount >= 1 && platformCount < 15  :
+	if platformCount >= 1 && platformCount < 30  :
 		return 1
 	else:
-		if platformCount >= 15 && platformCount < 30:
+		if platformCount >= 30 && platformCount < 60:
 			return 2
 		else: 
-			if platformCount >= 30 && platformCount < 60:
+			if platformCount >= 60 && platformCount < 120:
 				return 3
 			else:
-				if platformCount >= 60:
+				if platformCount >= 120:
 					return 4
 					
 	

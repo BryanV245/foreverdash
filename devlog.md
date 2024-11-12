@@ -66,3 +66,7 @@
 ### 2024-11-8 - 3 hr: Spike generation
 * spike generation moved into platform generator and are now generating correctly on top of each platform
 
+### 2024-11-9 - 4 hr: Spike generation, player movement, Killzone
+* spike generation bugs fixed
+* dialed in jump height and speed of player
+* added killzone to the spikes
