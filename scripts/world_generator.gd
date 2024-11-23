@@ -8,7 +8,7 @@ var min_platform_width = 200  # Minimum platform width
 var max_platform_width = 1000  # Maximum platform width
 var platform_height = 400      # Fixed height for the platforms
 var noise_scale = 0.25          # Spread of the noise
-var amplitude = 100           # Maximum height variation for platforms
+var amplitude = 75           # Maximum height variation for platforms
 
 # Reference to the player
 @onready var player = $"/root/Game/Player"

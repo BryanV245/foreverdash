@@ -9,6 +9,11 @@ var double_spike_scene = preload("res://scenes/obstacles/spikes_double.tscn")
 var triple_spike_scene = preload("res://scenes/obstacles/spikes_tripple.tscn")
 var quadruple_spike_scene = preload("res://scenes/obstacles/spikes_quadruple.tscn")
 
+var max_platforms = 20
+
+#the current_spike_chain data member stores the current value highest size spike chain possible
+var current_spike_chain = 1
+
 var rng = RandomNumberGenerator.new()
 
 # Function to adjust platform size (visual and collision)
@@ -38,14 +43,18 @@ func set_platform_size(width: float, height: float, platform_count: int):
 		collision_shape.extents = Vector2(width / 2, height / 2) 
 		
 	#spikes start at platform 15 to give the player the chance to get a feel for the game
-	if(platform_count >= 5):
-		generate_spike_row(width, height, calcSpikeRow(platform_count))
+	if(platform_count >= 1 ):
+		
+		generate_spike_row(width, height, mainSpikeRow(platform_count))    #generates the main spike row
+		secondarySpikes(width, height, mainSpikeRow(platform_count))
 		
 #function to generate spike and place it on the platform
 func generate_spike_row(width: float, height: float, spike_count: int):
 	# Choose the correct spike scene based on spike_count
 	var spike_row_scene
 	match spike_count:
+		0: 
+			return
 		1:
 			spike_row_scene = single_spike_scene
 		2:
@@ -65,23 +74,32 @@ func generate_spike_row(width: float, height: float, spike_count: int):
 	# Position the spike row
 	spike_row_instance.position = Vector2((width / 2 * -1) + offset, height / 2 * -1)
 
-	
 	# Add the spike row instance to the current scene
 	add_child(spike_row_instance)
 	
 	
-#function to set spike row depending on the amount of platforms the player has passed
-func calcSpikeRow(platformCount: float):
-	if platformCount >= 1 && platformCount < 30  :
-		return 1
+#Function to randomly place various spike obstacles
+func secondarySpikes(width: float, height: float, mainSpike: float):
+	var spikeCount = randi_range(1, 3)
+	var section = width
+	#for loop iterates a random(ish) number of times generating random spike rows
+	#with the chain limit being the mainSpike
+	for i in range(spikeCount):
+		section = section-width / (spikeCount*2)
+		generate_spike_row(section, height, randi_range(0, mainSpike-1))
+
+#Function to calculate the main spike row
+func mainSpikeRow(platformCount: float):
+	if platformCount >= 1 && platformCount < (max_platforms/4):
+		return randi_range(0,1)
 	else:
-		if platformCount >= 30 && platformCount < 60:
-			return 2
+		if platformCount >= (max_platforms/4) && platformCount < (max_platforms/3):
+			return randi_range(1,2)
 		else: 
-			if platformCount >= 60 && platformCount < 120:
-				return 3
+			if platformCount >= (max_platforms/3) && platformCount < (max_platforms / 2):
+				return randi_range(2,3)
 			else:
-				if platformCount >= 120:
+				if platformCount >= (max_platforms/2) && platformCount < max_platforms:
+					return randi_range(3,4)
+				else: 
 					return 4
-					
-	
