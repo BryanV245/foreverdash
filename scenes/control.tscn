@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://cqvdu2apusc41" path="res://assets/menu_theme.tres" id="2_bmnsr"]
 [ext_resource type="Texture2D" uid="uid://chni5n60li0yx" path="res://assets/platform01.png" id="2_ulhrd"]
 [ext_resource type="Texture2D" uid="uid://c43fr721svh2i" path="res://assets/spike.png" id="4_24hf4"]
-[ext_resource type="AudioStream" uid="uid://3xow65v68the" path="res://assets/Music/Sci-Fi Music Pack Vol. 2/Loops/wav/2 - Galactic Odyssey (Loop).wav" id="5_jwxoh"]
+[ext_resource type="AudioStream" uid="uid://dkdrnt7ycnnw0" path="res://assets/Music/2 - Galactic Odyssey (Loop).wav" id="5_fn8tt"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -80,7 +80,7 @@ scale = Vector2(0.0702703, 0.053719)
 texture = ExtResource("4_24hf4")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_jwxoh")
+stream = ExtResource("5_fn8tt")
 autoplay = true
 
 [connection signal="pressed" from="CenterContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

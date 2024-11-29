@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bn50yvk7i5itf" path="res://assets/parallax/grid2.png" id="1_10omi"]
 [ext_resource type="PackedScene" uid="uid://br7vgofaqaxep" path="res://scenes/player.tscn" id="2_ww5qg"]
 [ext_resource type="Script" path="res://scripts/world_generator.gd" id="3_rwhtp"]
-[ext_resource type="AudioStream" uid="uid://7ylrsobja3bx" path="res://assets/Music/Sci-Fi Music Pack Vol. 2/Loops/wav/4 - Celestial Echoes (Loop).wav" id="4_26d4f"]
+[ext_resource type="AudioStream" uid="uid://dgr4n4puvyqh2" path="res://assets/Music/4 - Celestial Echoes (Loop).wav" id="4_fb28i"]
 
 [node name="Game" type="Node2D"]
 
@@ -23,5 +23,5 @@ script = ExtResource("3_rwhtp")
 [node name="Player" parent="." instance=ExtResource("2_ww5qg")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_26d4f")
+stream = ExtResource("4_fb28i")
 autoplay = true
