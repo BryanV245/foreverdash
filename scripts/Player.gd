@@ -22,7 +22,7 @@ func _physics_process(delta):
 		return
 	
 	if position.y > 1000 || position.y < -1000:
-		position.y = -100
+		die()
 	
 	# Add the gravity.
 	if not is_on_floor():

@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckukdtlnp3kbc"]
+
+[ext_resource type="Script" path="res://scripts/moving_spikes_single.gd" id="1_kqsne"]
+[ext_resource type="Texture2D" uid="uid://c43fr721svh2i" path="res://assets/spike.png" id="2_rdpbq"]
+[ext_resource type="PackedScene" uid="uid://q17ljdgfkx3s" path="res://scenes/killzone.tscn" id="3_h1lvl"]
+
+[node name="spikes" type="Node2D"]
+script = ExtResource("1_kqsne")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6, -5)
+scale = Vector2(0.0324324, 0.0206612)
+texture = ExtResource("2_rdpbq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+position = Vector2(6.08976, -5.43247)
+scale = Vector2(0.0299202, 0.0215554)
+polygon = PackedVector2Array(-203.533, 252.024, -3.00002, -211.897, 197.533, 252.024)
+
+[node name="Killzone" parent="." instance=ExtResource("3_h1lvl")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Killzone"]
+visible = false
+position = Vector2(6.08976, -5.43247)
+scale = Vector2(0.0299202, 0.0215554)
+polygon = PackedVector2Array(-203.533, 252.024, -3.00002, -211.897, 197.533, 252.024)
+
+[node name="raycast_left" type="RayCast2D" parent="."]
+position = Vector2(6, -3)
+rotation = 1.59025
+target_position = Vector2(0.155597, 7.99849)
+collide_with_areas = true
+
+[node name="raycast_right" type="RayCast2D" parent="."]
+position = Vector2(6, -3)
+rotation = 1.59025
+scale = Vector2(1, -1.04273)
+target_position = Vector2(-0.155597, 7.67074)
+collide_with_areas = true

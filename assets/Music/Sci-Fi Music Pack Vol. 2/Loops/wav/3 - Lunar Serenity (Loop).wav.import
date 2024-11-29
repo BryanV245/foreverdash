@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dpd3cpj5qinmn"
+path="res://.godot/imported/3 - Lunar Serenity (Loop).wav-eefbc7d9dca256e304586a9db7858def.sample"
+
+[deps]
+
+source_file="res://assets/Music/Sci-Fi Music Pack Vol. 2/Loops/wav/3 - Lunar Serenity (Loop).wav"
+dest_files=["res://.godot/imported/3 - Lunar Serenity (Loop).wav-eefbc7d9dca256e304586a9db7858def.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://drakrraw2wqvk"
+path="res://.godot/imported/2 - Galactic Odyssey (Loop).mp3-b70dfb0441547ee3c496ad625a290b42.mp3str"
+
+[deps]
+
+source_file="res://assets/Music/Sci-Fi Music Pack Vol. 2/Loops/mp3/2 - Galactic Odyssey (Loop).mp3"
+dest_files=["res://.godot/imported/2 - Galactic Odyssey (Loop).mp3-b70dfb0441547ee3c496ad625a290b42.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

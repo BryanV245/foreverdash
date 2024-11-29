@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://rx1upo44xfyc"]
+[gd_scene load_steps=6 format=3 uid="uid://rx1upo44xfyc"]
 
 [ext_resource type="Script" path="res://scripts/control.gd" id="1_3mllh"]
 [ext_resource type="Theme" uid="uid://cqvdu2apusc41" path="res://assets/menu_theme.tres" id="2_bmnsr"]
+[ext_resource type="Texture2D" uid="uid://chni5n60li0yx" path="res://assets/platform01.png" id="2_ulhrd"]
+[ext_resource type="Texture2D" uid="uid://c43fr721svh2i" path="res://assets/spike.png" id="4_24hf4"]
+[ext_resource type="AudioStream" uid="uid://3xow65v68the" path="res://assets/Music/Sci-Fi Music Pack Vol. 2/Loops/wav/2 - Galactic Odyssey (Loop).wav" id="5_jwxoh"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -12,6 +15,11 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 script = ExtResource("1_3mllh")
+
+[node name="Platform01" type="Sprite2D" parent="."]
+position = Vector2(578, 325)
+scale = Vector2(0.809722, 0.4625)
+texture = ExtResource("2_ulhrd")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -40,6 +48,40 @@ layout_mode = 2
 theme = ExtResource("2_bmnsr")
 text = "Quit
 "
+
+[node name="Spike" type="Sprite2D" parent="."]
+position = Vector2(88, 619)
+scale = Vector2(0.0702703, 0.053719)
+texture = ExtResource("4_24hf4")
+
+[node name="Spike2" type="Sprite2D" parent="."]
+position = Vector2(88, 619)
+scale = Vector2(0.0702703, 0.053719)
+texture = ExtResource("4_24hf4")
+
+[node name="Spike3" type="Sprite2D" parent="."]
+position = Vector2(427, 619)
+scale = Vector2(0.0702703, 0.053719)
+texture = ExtResource("4_24hf4")
+
+[node name="Spike4" type="Sprite2D" parent="."]
+position = Vector2(701, 618)
+scale = Vector2(0.0702703, 0.053719)
+texture = ExtResource("4_24hf4")
+
+[node name="Spike6" type="Sprite2D" parent="."]
+position = Vector2(729, 618)
+scale = Vector2(0.0702703, 0.053719)
+texture = ExtResource("4_24hf4")
+
+[node name="Spike5" type="Sprite2D" parent="."]
+position = Vector2(1025, 616)
+scale = Vector2(0.0702703, 0.053719)
+texture = ExtResource("4_24hf4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_jwxoh")
+autoplay = true
 
 [connection signal="pressed" from="CenterContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/QuitButtton" to="." method="_on_quit_buttton_pressed"]

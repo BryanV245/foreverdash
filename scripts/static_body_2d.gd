@@ -8,11 +8,10 @@ var single_spike_scene = preload("res://scenes/obstacles/spikes_single.tscn")
 var double_spike_scene = preload("res://scenes/obstacles/spikes_double.tscn")
 var triple_spike_scene = preload("res://scenes/obstacles/spikes_tripple.tscn")
 var quadruple_spike_scene = preload("res://scenes/obstacles/spikes_quadruple.tscn")
+var moving_spike_scene = preload("res://scenes/obstacles/moving_spikes_single.tscn")
 
 var max_platforms = 20
 
-#the current_spike_chain data member stores the current value highest size spike chain possible
-var current_spike_chain = 1
 
 var rng = RandomNumberGenerator.new()
 
@@ -43,18 +42,19 @@ func set_platform_size(width: float, height: float, platform_count: int):
 		collision_shape.extents = Vector2(width / 2, height / 2) 
 		
 	#spikes start at platform 15 to give the player the chance to get a feel for the game
-	if(platform_count >= 1 ):
-		
-		generate_spike_row(width, height, mainSpikeRow(platform_count))    #generates the main spike row
+	if(platform_count >= 5):
+		#generate_spike_row(width, height, mainSpikeRow(platform_count))    #generates the main spike row
 		secondarySpikes(width, height, mainSpikeRow(platform_count))
-		
-#function to generate spike and place it on the platform
-func generate_spike_row(width: float, height: float, spike_count: int):
-	# Choose the correct spike scene based on spike_count
+		if(platform_count >= 15):
+			movingSpike(width, height)
+	
+	
+#function to get the spike row instance given the spike count passed
+func getSpikeRow(spike_count: int):
 	var spike_row_scene
 	match spike_count:
 		0: 
-			return
+			spike_row_scene = single_spike_scene
 		1:
 			spike_row_scene = single_spike_scene
 		2:
@@ -68,15 +68,18 @@ func generate_spike_row(width: float, height: float, spike_count: int):
 			print("Invalid spike count! Defaulting to single spike.")
 			spike_row_scene = single_spike_scene # Fallback to single spike if invalid count
 			# Instantiate the chosen spike row scene	
-	var spike_row_instance = spike_row_scene.instantiate()
+	var spike_row_instance = spike_row_scene
+	return spike_row_instance
 	
-	var offset = randi_range(0, width - spike_row_instance.getWidth())
+func generate_spike_row(width: float, height: float, spike_count: int):
+	# Choose the correct spike scene based on spike_count
+	var spike_row_instance = getSpikeRow(spike_count).instantiate()
+	var last_spike = 0
+	var offset = randi_range(last_spike, width - spike_row_instance.getWidth())
 	# Position the spike row
 	spike_row_instance.position = Vector2((width / 2 * -1) + offset, height / 2 * -1)
-
 	# Add the spike row instance to the current scene
 	add_child(spike_row_instance)
-	
 	
 #Function to randomly place various spike obstacles
 func secondarySpikes(width: float, height: float, mainSpike: float):
@@ -87,19 +90,41 @@ func secondarySpikes(width: float, height: float, mainSpike: float):
 	for i in range(spikeCount):
 		section = section-width / (spikeCount*2)
 		generate_spike_row(section, height, randi_range(0, mainSpike-1))
+		
+		
+		
+#function that creates and places the moving spike on the platform
+func movingSpike(width: float, height: float):
+	var spike_instance = moving_spike_scene.instantiate()
+	var offset = randi_range(0, width - spike_instance.getWidth())
+
+	spike_instance.set_plat(width)
+	spike_instance.position = Vector2((width / 2 * -1) + offset, height / 2 * -1)
+	
+	add_child(spike_instance)
+
+	
 
 #Function to calculate the main spike row
 func mainSpikeRow(platformCount: float):
-	if platformCount >= 1 && platformCount < (max_platforms/4):
+	if platformCount >= 1 && platformCount < (max_platforms/8):
 		return randi_range(0,1)
 	else:
-		if platformCount >= (max_platforms/4) && platformCount < (max_platforms/3):
-			return randi_range(1,2)
+		if platformCount >= (max_platforms/8) && platformCount < (max_platforms/7):
+			return 1
 		else: 
-			if platformCount >= (max_platforms/3) && platformCount < (max_platforms / 2):
-				return randi_range(2,3)
+			if platformCount >= (max_platforms/7) && platformCount < (max_platforms / 6):
+				return randi_range(1,2)
 			else:
-				if platformCount >= (max_platforms/2) && platformCount < max_platforms:
-					return randi_range(3,4)
+				if platformCount >= (max_platforms/6) && platformCount < (max_platforms/5):
+					return 2
 				else: 
-					return 4
+					if platformCount >= (max_platforms/6) && platformCount < (max_platforms/5):
+						return randi_range(2,3)
+					else: 
+						if platformCount >= (max_platforms/5) && platformCount < (max_platforms/4):
+							return 3
+						else: 
+							return randi_range(3, 4)
+								
+						

@@ -1,11 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmv67n3xrxhyd"]
+[gd_scene load_steps=5 format=3 uid="uid://bmv67n3xrxhyd"]
 
+[ext_resource type="Texture2D" uid="uid://bn50yvk7i5itf" path="res://assets/parallax/grid2.png" id="1_10omi"]
 [ext_resource type="PackedScene" uid="uid://br7vgofaqaxep" path="res://scenes/player.tscn" id="2_ww5qg"]
 [ext_resource type="Script" path="res://scripts/world_generator.gd" id="3_rwhtp"]
+[ext_resource type="AudioStream" uid="uid://7ylrsobja3bx" path="res://assets/Music/Sci-Fi Music Pack Vol. 2/Loops/wav/4 - Celestial Echoes (Loop).wav" id="4_26d4f"]
 
 [node name="Game" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_offset = Vector2(100, -50)
+motion_mirroring = Vector2(1440, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_10omi")
 
 [node name="WorldGenerator" type="Node2D" parent="."]
 script = ExtResource("3_rwhtp")
 
 [node name="Player" parent="." instance=ExtResource("2_ww5qg")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_26d4f")
+autoplay = true

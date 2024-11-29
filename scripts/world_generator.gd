@@ -28,7 +28,7 @@ var platform_count = 1
 func _ready():
 
 	#This is to debug collision shapes
-	get_tree().debug_collisions_hint = true;
+	#get_tree().debug_collisions_hint = true;
 	
 	noise.noise_type = FastNoiseLite.TYPE_SIMPLEX
 	

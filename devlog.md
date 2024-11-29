@@ -1,3 +1,7 @@
+### 2024-11-28 - credits
+* to alkakrab for the music
+* chatGPT for the square and triangle
+
 ### 2024-11-23 - 3 hr: Spike randomization, secondary spike generation
 * Procedural spike generation is now implemented.
   * Spikes are now dynamically incremented as the player progresses.
